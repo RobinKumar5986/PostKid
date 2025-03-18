@@ -1,0 +1,17 @@
+<idea-plugin>
+    <id>com.kgJr.posKid</id>
+    <name>Post Kid</name>
+    <version>1.0-SNAPSHOT</version>
+    <vendor email="N/A">rkrobin6550@gmail.com</vendor>
+    <description>
+        This is a simple lightweight plugin for testing your API without the need to any other third party software.
+    </description>
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="PostKid"
+                    anchor="right"
+                    factoryClass="com.kgJr.posKid.ui.MainSidebarView"
+                    icon="AllIcons.General.Web"/>
+    </extensions>
+
+
+</idea-plugin>
