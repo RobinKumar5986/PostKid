@@ -1,17 +1,32 @@
 <idea-plugin>
-    <id>com.kgJr.posKid</id>
+    <id>com.kgJr.postKid</id>
     <name>Post Kid</name>
     <version>1.0-SNAPSHOT</version>
-    <vendor email="N/A">rkrobin6550@gmail.com</vendor>
+    <vendor email="N/A" url="https://github.com/RobinKumar5986/PostKid">rkrobin6550@gmail.com</vendor>
     <description>
-        This is a simple lightweight plugin for testing your API without the need to any other third party software.
+        <![CDATA[
+        <b>PostKid</b> is a lightweight networking tool designed as an IntelliJ IDEA extension.<br>
+        Inspired by <b>Postman</b>, PostKid provides a simple and efficient way to perform networking tasks directly inside the IntelliJ environment &mdash; without the need to install external applications like Postman for basic lightweight networking.<br><br>
+        <img src="https://github.com/user-attachments/assets/057a40b2-587e-4c79-a00e-e891768e0541" width="800"/><br><br>
+        <b>✨ Features</b>
+        <ul>
+            <li>Lightweight and fast networking inside IntelliJ IDEA.</li>
+            <li>No need to switch between your IDE and Postman for simple HTTP requests.</li>
+            <li>Built using the powerful <code>OkHttpClient</code> library.</li>
+            <li>Supports basic networking operations like <b>GET</b>, <b>POST</b>, <b>PUT</b>, and <b>DELETE</b>.</li>
+            <li>Minimalist and easy-to-use interface.</li>
+        </ul>
+        <br>
+        <b>🚀 Why PostKid?</b><br>
+        While Postman is a fantastic tool, it can often feel too heavy for quick, lightweight networking tasks.<br>
+        <b>PostKid</b> offers an integrated alternative that saves time and system resources by allowing developers to stay within their IntelliJ workflow for basic API testing.<br>
+        <a href="https://github.com/RobinKumar5986/PostKid">View on GitHub</a>
+        ]]>
     </description>
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow id="PostKid"
                     anchor="right"
                     factoryClass="com.kgJr.posKid.ui.MainSidebarView"
-                    icon="AllIcons.General.Web"/>
+                    icon="/drawables/voodoo.svg"/>
     </extensions>
-
-
 </idea-plugin>

@@ -85,7 +85,10 @@ class MainSidebarView : ToolWindowFactory {
         urlTextArea.lineWrap = true
         urlTextArea.wrapStyleWord = true
         urlScrollPane.preferredSize = Dimension(200, 30)
-        urlScrollPane.border = BorderFactory.createEmptyBorder(2, 2, 2, 2)
+        urlScrollPane.border = BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(Color.GRAY, 1), // Add border to URL input section
+            BorderFactory.createEmptyBorder(2, 2, 2, 2)
+        )
 
         sendButton.preferredSize = Dimension(60, 25)
 
@@ -170,7 +173,10 @@ class MainSidebarView : ToolWindowFactory {
         outputTextArea.lineWrap = true
         outputTextArea.wrapStyleWord = true
         val outputScrollPane = JScrollPane(outputTextArea)
-        outputScrollPane.border = BorderFactory.createEmptyBorder(2, 2, 2, 2)
+        outputScrollPane.border = BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(Color.GRAY, 1), // Add border to output section
+            BorderFactory.createEmptyBorder(2, 2, 2, 2)
+        )
         mainPanel.add(outputScrollPane, BorderLayout.CENTER)
 
         val contentFactory = ContentFactory.getInstance()
