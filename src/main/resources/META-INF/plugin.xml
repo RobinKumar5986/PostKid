@@ -23,6 +23,8 @@
         <a href="https://github.com/RobinKumar5986/PostKid">View on GitHub</a>
         ]]>
     </description>
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow id="PostKid"
                     anchor="right"
