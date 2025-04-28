@@ -15,7 +15,7 @@ Inspired by **Postman**, PostKid provides a simple and efficient way to perform 
 ---
 ## 📸 Preview
 
-<img src="https://github.com/user-attachments/assets/057a40b2-587e-4c79-a00e-e891768e0541" width="800"/>
+<img src="https://github.com/user-attachments/assets/d7a89df5-4a28-4177-96d6-b9c3a14a2f3a" width="800"/>
 
 ---
 ## 🚀 Why PostKid?
