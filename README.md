@@ -7,7 +7,7 @@ Inspired by **Postman**, PostKid provides a simple and efficient way to perform 
 
 You can download the plugin from the link below:
 
-[Download PostKid Plugin (ZIP)](https://github.com/RobinKumar5986/PostKid/blob/master/src/PostKid-1.0-SNAPSHOT.zip)
+[Download PostKid Plugin (ZIP)](https://github.com/RobinKumar5986/PostKid/blob/master/src/main/PostKid-1.0-SNAPSHOT.zip)
 
 ---
 ## ✨ Features
