@@ -10,6 +10,7 @@ import com.kgJr.posKid.api.ApiHandler
 import com.kgJr.posKid.api.ApiMethodType
 import java.awt.*
 import javax.swing.*
+import javax.swing.SwingWorker
 
 class MainSidebarView : ToolWindowFactory {
     val methods = arrayOf("GET", "POST", "PUT", "DELETE")
@@ -122,34 +123,35 @@ class MainSidebarView : ToolWindowFactory {
                 outputTextArea.text = "Invalid url..."
             } else {
                 val finalUrl = buildUrlWithQueryParams(url, queryParams)
-                when (dropdown.selectedItem) {
-                    "GET" -> {
-                        outputTextArea.text = toPrettyFormat(
-                            ApiHandler.callRequest(finalUrl, ApiMethodType.GET, "") ?: ""
-                        )
+                outputTextArea.text = "Loading..." // Show "Loading..."
+                // Use SwingWorker for asynchronous API call
+                object : SwingWorker<String?, Void>() {
+                    override fun doInBackground(): String? {
+                        return when (dropdown.selectedItem) {
+                            "GET" -> ApiHandler.callRequest(finalUrl, ApiMethodType.GET, "")
+                            "POST" -> ApiHandler.callRequest(finalUrl, ApiMethodType.POST, body, headers)
+                            "PUT" -> ApiHandler.callRequest(finalUrl, ApiMethodType.PUT, body, headers)
+                            "DELETE" -> ApiHandler.callRequest(finalUrl, ApiMethodType.DELETE, body, headers)
+                            else -> "Something went wrong"
+                        }
                     }
-                    "POST" -> {
-                        outputTextArea.text = toPrettyFormat(
-                            ApiHandler.callRequest(finalUrl, ApiMethodType.POST, body, headers) ?: ""
-                        )
+
+                    override fun done() {
+                        try {
+                            val result = get()
+                            outputTextArea.text = if (result?.startsWith("Error:") == true) {
+                                result // Display error from ApiHandler
+                            } else {
+                                toPrettyFormat(result ?: "")
+                            }
+                        } catch (e: Exception) {
+                            outputTextArea.text = "Error: ${e.message}"
+                        }
+                        if (isExpanded) {
+                            updateCurlText(curlTextArea, dropdown, urlTextArea, queryParamsPanel, headersPanel, bodyTextArea)
+                        }
                     }
-                    "PUT" -> {
-                        outputTextArea.text = toPrettyFormat(
-                            ApiHandler.callRequest(finalUrl, ApiMethodType.PUT, body, headers) ?: ""
-                        )
-                    }
-                    "DELETE" -> {
-                        outputTextArea.text = toPrettyFormat(
-                            ApiHandler.callRequest(finalUrl, ApiMethodType.DELETE, body, headers) ?: ""
-                        )
-                    }
-                    else -> {
-                        outputTextArea.text = "Something went wrong"
-                    }
-                }
-            }
-            if (isExpanded) {
-                updateCurlText(curlTextArea, dropdown, urlTextArea, queryParamsPanel, headersPanel, bodyTextArea)
+                }.execute()
             }
         }
 
