@@ -3,6 +3,12 @@
 **PostKid** is a lightweight networking tool designed as an IntelliJ IDEA extension.  
 Inspired by **Postman**, PostKid provides a simple and efficient way to perform networking tasks directly inside the IntelliJ environment — without the need to install external applications like Postman for basic lightweight networking.
 
+## Download
+
+You can download the plugin from the link below:
+
+[Download PostKid Plugin (ZIP)](https://github.com/RobinKumar5986/PostKid/blob/master/src/PostKid-1.0-SNAPSHOT.zip)
+
 ---
 ## ✨ Features
 
