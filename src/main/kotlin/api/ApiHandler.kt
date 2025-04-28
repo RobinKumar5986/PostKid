@@ -6,16 +6,19 @@ import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.util.concurrent.TimeUnit
 
-class ApiHandler {
+object ApiHandler {
     private val client = OkHttpClient.Builder()
         .connectTimeout(30,TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
         .writeTimeout(30, TimeUnit.SECONDS)
         .build()
 
-    fun requestBuilder(url: String,methodType: ApiMethodType,body: String?): Request{
+    fun requestBuilder(url: String,methodType: ApiMethodType,body: String?, headers: Map<String, String>?): Request{
         val request = Request.Builder()
             .url(url)
+        headers?.forEach { (key, value) ->
+            request.header(key, value)
+        }
 
         val requestBody = body?.toRequestBody("application/json; charset=utf-8".toMediaType())
         when (methodType) {
@@ -37,16 +40,16 @@ class ApiHandler {
                 }
             }
             ApiMethodType.DELETE -> {
-                request.delete(requestBody)
+                request.delete(requestBody) //Optional body
             }
         }
 
         return request.build()
     }
 
-    fun callRequest(url: String, methodType: ApiMethodType, body: String?): String?{
+    fun callRequest(url: String, methodType: ApiMethodType, body: String?,headers: Map<String, String>? = null): String?{
         try {
-            val request = this.requestBuilder(url = url, methodType = methodType,body = body)
+            val request = this.requestBuilder(url = url, methodType = methodType,body = body,headers = headers)
             client.newCall(request).execute().use { response ->
                 return if (response.isSuccessful) {
                     response.body?.string()
