@@ -7,6 +7,9 @@ Inspired by **Postman**, PostKid provides a simple and efficient way to perform 
 
 You can download the plugin from the link below:
 
+
+[IntelliJ Marketplace](https://plugins.jetbrains.com/plugin/27226-post-kid/versions/stable/727938)
+
 [Download PostKid Plugin (ZIP)](https://github.com/RobinKumar5986/PostKid/blob/master/src/main/PostKid-1.0-SNAPSHOT.zip)
 
 ---
