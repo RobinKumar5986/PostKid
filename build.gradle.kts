@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.kgJr.postKid"
-version = "1.0-SNAPSHOT"
+version = "1.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -20,7 +20,7 @@ kotlin {
 }
 
 intellij {
-    version.set("2024.1.3")
+    version.set("2022.2.1")
     type.set("IC")
     plugins.set(listOf("java"))
 }
@@ -28,8 +28,7 @@ intellij {
 tasks {
     patchPluginXml {
         version.set(project.version.toString())
-        sinceBuild.set("241")
-        untilBuild.set("242.*")
+        sinceBuild.set("222")
     }
 
     test {
